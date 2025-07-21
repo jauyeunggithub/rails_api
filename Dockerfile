@@ -13,15 +13,14 @@ RUN apt-get update -qq && apt-get install -y \
 # Set the working directory inside the container
 WORKDIR /app
 
+ENV RAILS_ENV=test
+
 # Install Rails dependencies
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile ./
 RUN bundle install
 
 # Add the rest of the app files
 COPY . .
-
-# Precompile assets (optional)
-RUN RAILS_ENV=production bundle exec rake assets:precompile
 
 # Expose the port that Rails will run on
 EXPOSE 3000
