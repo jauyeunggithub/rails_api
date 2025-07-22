@@ -8,7 +8,7 @@ docker-compose run app rails db:create
 docker-compose run app rails db:migrate
 
 echo Running tests...
-docker-compose run app rspec
+docker-compose run app rails test
 
 echo Done. Containers are built, migrations are applied, and tests have run.
 
