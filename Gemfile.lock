@@ -66,11 +66,22 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
     base64 (0.3.0)
     bcrypt (3.1.20)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
     builder (3.3.0)
+    capybara (3.40.0)
+      addressable
+      matrix
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.11)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (>= 1.5, < 3.0)
+      xpath (~> 3.2)
     concurrent-ruby (1.3.5)
     crass (1.0.6)
     database_cleaner-active_record (2.2.1)
@@ -124,6 +135,7 @@ GEM
       faraday-multipart (~> 1.1.0)
       mime-types
     marcel (1.0.4)
+    matrix (0.4.3)
     method_source (1.1.0)
     mime-types (3.7.0)
       logger
@@ -131,6 +143,9 @@ GEM
     mime-types-data (3.2025.0715)
     mini_mime (1.1.5)
     minitest (5.25.5)
+    minitest-rails (7.0.1)
+      minitest (~> 5.10)
+      railties (~> 7.0.0)
     msgpack (1.8.0)
     multipart-post (2.4.1)
     net-http (0.6.0)
@@ -148,6 +163,7 @@ GEM
     nokogiri (1.18.9-x86_64-linux-gnu)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    public_suffix (6.0.2)
     puma (5.6.9)
       nio4r (~> 2.0)
     racc (1.8.1)
@@ -170,6 +186,10 @@ GEM
       activesupport (= 7.0.8.7)
       bundler (>= 1.15.0)
       railties (= 7.0.8.7)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.3.0)
       activesupport (>= 5.0.0)
       minitest
@@ -185,9 +205,11 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.3.0)
+    regexp_parser (2.10.0)
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
+    rexml (3.4.1)
     rspec-core (3.13.5)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.5)
@@ -205,6 +227,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.13.4)
+    rubyzip (2.4.1)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -215,6 +238,12 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    selenium-webdriver (4.32.0)
+      base64 (~> 0.2)
+      logger (~> 1.4)
+      rexml (~> 3.2, >= 3.2.5)
+      rubyzip (>= 1.2.2, < 3.0)
+      websocket (~> 1.0)
     semantic_range (3.1.0)
     sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
@@ -241,10 +270,13 @@ GEM
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
+    websocket (1.2.11)
     websocket-driver (0.8.0)
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
     zeitwerk (2.6.18)
 
 PLATFORMS
@@ -253,16 +285,20 @@ PLATFORMS
 DEPENDENCIES
   activesupport (= 7.0.8.7)
   bootsnap (= 1.7.5)
+  capybara
   database_cleaner-active_record (~> 2.0)
   devise (~> 4.8)
   factory_bot_rails (~> 6.0)
   faker
   jbuilder (~> 2.7)
   mailgun-ruby
+  minitest-rails
   puma (~> 5.0)
   rails (= 7.0.8.7)
+  rails-controller-testing
   rspec-rails (~> 5.0)
   sass-rails (>= 6)
+  selenium-webdriver
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
   webpacker (~> 5.0)

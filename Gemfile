@@ -19,3 +19,10 @@ gem 'factory_bot_rails', '~> 6.0'  # For creating test data
 gem 'database_cleaner-active_record', '~> 2.0'  # For cleaning the database between tests
 
 gem 'activesupport', '7.0.8.7' # Update this version to match Rails version
+
+group :test do
+  gem 'rails-controller-testing'
+  gem 'minitest-rails'
+  gem 'capybara'      # For system tests
+  gem 'selenium-webdriver'  # For Capybara with JS testing
+end

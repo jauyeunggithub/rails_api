@@ -1,10 +1,5 @@
 require "active_support/core_ext/integer/time"
 
-# The test environment is used exclusively to run your application's
-# test suite. You never need to work with it otherwise. Remember that
-# your test database is "scratch space" for the test suite and is wiped
-# and recreated between test runs. Don't rely on the data there!
-
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -44,6 +39,9 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+  # Set default URL options for test environment (host: 'localhost', port: 3000)
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
@@ -52,13 +50,4 @@ Rails.application.configure do
 
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
-
-  # Raises error for missing translations.
-  # config.i18n.raise_on_missing_translations = true
-
-  # Annotate rendered view with file names.
-  # config.action_view.annotate_rendered_view_with_filenames = true
-
-  # Raise error when a before_action's only/except options reference missing actions
-  config.action_controller.raise_on_missing_callback_actions = true
 end
