@@ -2,7 +2,8 @@ require 'test_helper'
 
 class PostMailerTest < ActionMailer::TestCase
   def setup
-    @user = User.create!(email: "testuser@example.com")
+    # Adding a password to ensure the User is created successfully
+    @user = User.create!(email: "testuser@example.com", password: "password123", password_confirmation: "password123")
     @post = Post.create!(title: "Sample Post", content: "This is a test post", user: @user)
   end
 
